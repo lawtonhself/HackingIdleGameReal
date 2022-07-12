@@ -309,6 +309,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 0
   pointsDisplay: {fileID: 1591923010}
+  countingButton: {fileID: 1137998420}
+  countingButton2: {fileID: 1562575297}
 --- !u!1 &944311569
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +679,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 0
   pointsDisplay: {fileID: 1591923010}
+  countingButton: {fileID: 0}
+  countingButton2: {fileID: 0}
 --- !u!1 &1409133225
 GameObject:
   m_ObjectHideFlags: 0

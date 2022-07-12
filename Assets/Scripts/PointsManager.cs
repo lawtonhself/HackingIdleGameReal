@@ -14,9 +14,14 @@ public class PointsManager : MonoBehaviour
     int k;
     int l;
 
+    public Button countingButton;
+    public Button countingButton2;
+
     void Start()
     {
         pointsDisplay.text = points.ToString();
+        countingButton.onClick.AddListener(counting);
+        countingButton2.onClick.AddListener(counting2);
     }
 
     // Update is called once per frame
@@ -25,7 +30,6 @@ public class PointsManager : MonoBehaviour
 
         timerMethod(5, 1);
         //timerMethod(10, 1, 2);
-
 
         pointsDisplay.text = points.ToString() + " Points!";
 
@@ -58,6 +62,11 @@ public class PointsManager : MonoBehaviour
     public void counting()
     {
         points += 1;
+    }
+
+    public void counting2()
+    {
+        points += 10;
     }
 
 
