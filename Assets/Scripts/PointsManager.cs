@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class PointsManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //the points for the whole game
     public double points = 0;
+    //the points for the whole game, but rounded for easier displaying
+    public double roundedPoints = 0;
+    //the text variable that displays the points in the Text object
     public Text pointsDisplay;
+    //string that will be added to show if its millions, billions, trillians, ext
+    public string numbersAsWords = "";
 
     int i;
     int j;
@@ -17,6 +23,7 @@ public class PointsManager : MonoBehaviour
     public Button countingButton;
     public Button countingButton2;
 
+    // Start is called before the first frame update
     void Start()
     {
         pointsDisplay.text = points.ToString();
@@ -28,10 +35,12 @@ public class PointsManager : MonoBehaviour
     void Update()
     {
 
-        timerMethod(5, 1);
+        timerMethod(10, 1);
         //timerMethod(10, 1, 2);
+        points += 1000.14515461768;
 
-        pointsDisplay.text = points.ToString() + " Points!";
+        roundedPoints = Math.Round(points, 4);
+        pointsDisplay.text = roundedPoints.ToString() + " " + writingNumbers(points) + " Points! ";
 
     }
 
@@ -62,6 +71,7 @@ public class PointsManager : MonoBehaviour
     public void counting()
     {
         points += 1;
+        
     }
 
     public void counting2()
@@ -69,5 +79,34 @@ public class PointsManager : MonoBehaviour
         points += 10;
     }
 
+    //This method writes out the words for numbers ex 4.5 "hundred", or 4.5 "million"
+    public string writingNumbers(double i)
+    {
+        if (i < 1000000)
+        {
+            numbersAsWords = "";
+        }
 
+        else if (i >= 1000000 && i < 1000000000)
+        {
+            numbersAsWords = "Million";
+        }
+
+        else if (i >= 1000000000 && i < 1000000000000)
+        {
+            numbersAsWords = "Billion";
+        }
+
+        else if (i >= 1000000000000 && i < 1000000000000000)
+        {
+            numbersAsWords = "Trillion";
+        }
+
+        else if (i >= 1000000000000000 && i < 1000000000000000000)
+        {
+            numbersAsWords = "Quadrillion";
+        }
+
+        return numbersAsWords;
+    }
 }
