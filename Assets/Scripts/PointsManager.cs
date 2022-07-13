@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Numerics;
 
 public class PointsManager : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class PointsManager : MonoBehaviour
 
     public Button countingButton;
     public Button countingButton2;
+
+    public String t1 = "";
+    public String t2 = "";
+    public String t3 = "";
 
     // Start is called before the first frame update
     void Start()
@@ -102,11 +107,38 @@ public class PointsManager : MonoBehaviour
             numbersAsWords = "Trillion";
         }
 
-        else if (i >= 1000000000000000 && i < 1000000000000000000)
+        else if (i >= 1000000000000000 && i < 100000000000000000)
         {
             numbersAsWords = "Quadrillion";
         }
 
         return numbersAsWords;
+
     }
+
+    public String addingStrings(String t1, String t2)
+    {
+
+        //12.14
+
+        string result = "";
+
+        while (t1 != "" && t2 != "")
+        {
+            int num1 = char.Parse(t1.Remove(t1.Length - 1)) - '0';
+            int num2 = char.Parse(t2.Remove(t2.Length - 1)) - '0';
+            result = (num1 + num2 + '0') + result;
+        }
+        if (t1 != "")
+        {
+            result = t1 + result;
+        }
+        else if(t2 != "")
+        {
+            result = t2 + result;
+        }
+
+        return result;
+    }
+    
 }
