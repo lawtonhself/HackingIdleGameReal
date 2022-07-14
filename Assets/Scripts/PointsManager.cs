@@ -9,9 +9,7 @@ public class PointsManager : MonoBehaviour
 {
     //the points for the whole game
     public string points = "0"; 
-    //the points for the whole game, but rounded for easier displaying
-    public double roundedPoints = 0;
-    //the text variable that displays the points in the Text object
+    //the text GameObject that displays the points in the scene
     public Text pointsDisplay;
     //string that will be added to show if its millions, billions, trillians, ext
     public string numbersAsWords = "";
@@ -32,13 +30,11 @@ public class PointsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         timerMethod(10, 1);
         //timerMethod(10, 1, 2);
 
         roundedPoints = Math.Round(points, 4);
         pointsDisplay.text = roundedPoints.ToString() + " " + writingNumbers(points) + " Points! ";
-
     }
 
     //k is the amount of points you wanted added every j seconds
@@ -51,23 +47,6 @@ public class PointsManager : MonoBehaviour
         }
 
         return i;
-    }
-
-    //This method writes out the words for numbers ex 4.5 "hundred", or 4.5 "million"
-    public string writingNumbers(double i)
-    {
-        if (i < 1000000)
-        {
-            numbersAsWords = "";
-        }
-
-        else if (i >= 1000000 && i < 1000000000)
-        {
-            numbersAsWords = "Million";
-        }
-
-        return numbersAsWords;
-
     }
 
     //The game requires variables that are too big for the number data types, so we will use strings.
@@ -95,8 +74,30 @@ public class PointsManager : MonoBehaviour
         return result;
     }
 
+    //This method take in a string of numbers and rounds them
+    public string roundPoints(string i)
+    {
+        return i;
+    }
+
+    //This method writes out the words for numbers ex 4.5 "hundred", or 4.5 "million"
+    public string writingNumbers(string i)
+    {
+        if (i.Length < 7)
+        {
+            numbersAsWords = "";
+        }
+
+        else if (i.Length >= 7 && i.Length < 10)
+        {
+            numbersAsWords = "Million";
+        }
+
+        return numbersAsWords;
+    }
+
     //This is where all the button methods will go
-    
+
     //Game button: brute force attack
     public void bruteForceAttack()
     {
