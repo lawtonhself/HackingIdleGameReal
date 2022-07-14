@@ -19,10 +19,13 @@ public class PointsManager : MonoBehaviour
     public Button bruteForceButton;
     public Button countingButton2;
 
-    // Start is called before the first frame update
+    //Counters for all the buttons
+    int bruteForceCounter = 1;
+
+    // Start is called before the first frame update//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     void Start()
     {
-        pointsDisplay.text = points.ToString();
+        pointsDisplay.text = points + " Points";
         bruteForceButton.onClick.AddListener(bruteForceAttack);
         countingButton2.onClick.AddListener(counting2);
     }
@@ -74,6 +77,22 @@ public class PointsManager : MonoBehaviour
         return result;
     }
 
+    //This is for adding or subtracting the amount of a button cost after you use a button.
+    //It takes in the button id whitch lets you know what button it is, and either a 0 or 1 for adding or subtracting
+    public void buyAndSell(int buttonID, int addOrSub)
+    {
+        if (buttonID == 1 && addOrSub == 0)
+        {
+
+        }
+        if (buttonID == 1 && addOrSub == 1)
+        {
+
+        }
+
+
+    }
+
     //This method take in a string of numbers and rounds them
     public string roundPoints(string i)
     {
@@ -96,11 +115,18 @@ public class PointsManager : MonoBehaviour
         return numbersAsWords;
     }
 
-    //This is where all the button methods will go
+    //This is where all the button methods will go////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //Game button: brute force attack
-    public void bruteForceAttack()
+    //Game button: brute force attack buy
+    public void bruteForceAttackAdd()
     {
+        bruteForceCounter += 1;
+        points += 1;
+    }
+    //Game button: brute force attack sell
+    public void bruteForceAttackSub()
+    {
+        bruteForceCounter += 1;
         points += 1;
     }
 
@@ -109,19 +135,4 @@ public class PointsManager : MonoBehaviour
         points += 10;
     }
 
-    //This is for adding or subtracting the amount of a button cost after you use a button.
-    //It takes in the button id whitch lets you know what button it is, and either a 0 or 1 for adding or subtracting
-    public void changingValuetoButtons(int buttonID, int addOrSub)
-    {
-        if (buttonID == 1 && addOrSub == 0)
-        {
-            
-        }
-        if (buttonID == 1 && addOrSub == 1)
-        {
-
-        }
-
-
-    }
 }
