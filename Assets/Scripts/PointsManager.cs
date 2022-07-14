@@ -8,7 +8,7 @@ using System.Numerics;
 public class PointsManager : MonoBehaviour
 {
     //the points for the whole game
-    public int points = ""; 
+    public string points = "0"; 
     //the points for the whole game, but rounded for easier displaying
     public double roundedPoints = 0;
     //the text variable that displays the points in the Text object
@@ -18,14 +18,14 @@ public class PointsManager : MonoBehaviour
 
     int i;
 
-    public Button countingButton;
+    public Button bruteForceButton;
     public Button countingButton2;
 
     // Start is called before the first frame update
     void Start()
     {
         pointsDisplay.text = points.ToString();
-        countingButton.onClick.AddListener(bruteForceAttack);
+        bruteForceButton.onClick.AddListener(bruteForceAttack);
         countingButton2.onClick.AddListener(counting2);
     }
 
@@ -110,13 +110,13 @@ public class PointsManager : MonoBehaviour
 
     //This is for adding or subtracting the amount of a button cost after you use a button.
     //It takes in the button id whitch lets you know what button it is, and either a 0 or 1 for adding or subtracting
-    public void changingValuetoButtons(int buttoneID, int addOrSub)
+    public void changingValuetoButtons(int buttonID, int addOrSub)
     {
         if (buttonID == 1 && addOrSub == 0)
         {
             
         }
-        if (buttoneID == 1 && addOrSub == 1)
+        if (buttonID == 1 && addOrSub == 1)
         {
 
         }
