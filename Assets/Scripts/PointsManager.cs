@@ -8,7 +8,7 @@ using System.Numerics;
 public class PointsManager : MonoBehaviour
 {
     //the points for the whole game
-    public double points = 0;
+    public int points = ""; 
     //the points for the whole game, but rounded for easier displaying
     public double roundedPoints = 0;
     //the text variable that displays the points in the Text object
@@ -20,10 +20,6 @@ public class PointsManager : MonoBehaviour
 
     public Button countingButton;
     public Button countingButton2;
-
-    public String t1 = "";
-    public String t2 = "";
-    public String t3 = "";
 
     // Start is called before the first frame update
     void Start()
@@ -76,7 +72,7 @@ public class PointsManager : MonoBehaviour
 
     //The game requires variables that are too big for the number data types, so we will use strings.
     //This method will add those strings since we cant add numbers 
-    public String addingStrings(String t1, String t2)
+    public string addingStrings(string t1, string t2)
     {
 
         string result = "";
@@ -112,14 +108,15 @@ public class PointsManager : MonoBehaviour
         points += 10;
     }
 
-    //This is for increasing the amount of a button cost after you use a button
-    public void changingValuetoButtons(int buttoneNumber, int addOrSub)
+    //This is for adding or subtracting the amount of a button cost after you use a button.
+    //It takes in the button id whitch lets you know what button it is, and either a 0 or 1 for adding or subtracting
+    public void changingValuetoButtons(int buttoneID, int addOrSub)
     {
-        if (buttoneNumber == 1 && addOrSub == 0)
+        if (buttonID == 1 && addOrSub == 0)
         {
             
         }
-        if (buttoneNumber == 1 && addOrSub == 1)
+        if (buttoneID == 1 && addOrSub == 1)
         {
 
         }
