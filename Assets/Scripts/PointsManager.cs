@@ -17,9 +17,6 @@ public class PointsManager : MonoBehaviour
     public string numbersAsWords = "";
 
     int i;
-    int j;
-    int k;
-    int l;
 
     public Button countingButton;
     public Button countingButton2;
@@ -32,7 +29,7 @@ public class PointsManager : MonoBehaviour
     void Start()
     {
         pointsDisplay.text = points.ToString();
-        countingButton.onClick.AddListener(counting);
+        countingButton.onClick.AddListener(bruteForceAttack);
         countingButton2.onClick.AddListener(counting2);
     }
 
@@ -42,7 +39,6 @@ public class PointsManager : MonoBehaviour
 
         timerMethod(10, 1);
         //timerMethod(10, 1, 2);
-        points += 1000.14515461768;
 
         roundedPoints = Math.Round(points, 4);
         pointsDisplay.text = roundedPoints.ToString() + " " + writingNumbers(points) + " Points! ";
@@ -61,29 +57,6 @@ public class PointsManager : MonoBehaviour
         return i;
     }
 
-    //this is another timer method.k is the amount of points you wanted added every j seconds with a modifier of l  
-    public int timerMethod(int j, int k, int l)
-    {
-        if (Time.time > i)
-        {
-            i += (j*(1/l));
-            points += k;
-        }
-
-        return i;
-    }
-
-    public void counting()
-    {
-        points += 1;
-        
-    }
-
-    public void counting2()
-    {
-        points += 10;
-    }
-
     //This method writes out the words for numbers ex 4.5 "hundred", or 4.5 "million"
     public string writingNumbers(double i)
     {
@@ -97,29 +70,14 @@ public class PointsManager : MonoBehaviour
             numbersAsWords = "Million";
         }
 
-        else if (i >= 1000000000 && i < 1000000000000)
-        {
-            numbersAsWords = "Billion";
-        }
-
-        else if (i >= 1000000000000 && i < 1000000000000000)
-        {
-            numbersAsWords = "Trillion";
-        }
-
-        else if (i >= 1000000000000000 && i < 100000000000000000)
-        {
-            numbersAsWords = "Quadrillion";
-        }
-
         return numbersAsWords;
 
     }
 
+    //The game requires variables that are too big for the number data types, so we will use strings.
+    //This method will add those strings since we cant add numbers 
     public String addingStrings(String t1, String t2)
     {
-
-        //12.14
 
         string result = "";
 
@@ -140,5 +98,32 @@ public class PointsManager : MonoBehaviour
 
         return result;
     }
+
+    //This is where all the button methods will go
     
+    //Game button: brute force attack
+    public void bruteForceAttack()
+    {
+        points += 1;
+    }
+
+    public void counting2()
+    {
+        points += 10;
+    }
+
+    //This is for increasing the amount of a button cost after you use a button
+    public void changingValuetoButtons(int buttoneNumber, int addOrSub)
+    {
+        if (buttoneNumber == 1 && addOrSub == 0)
+        {
+            
+        }
+        if (buttoneNumber == 1 && addOrSub == 1)
+        {
+
+        }
+
+
+    }
 }
